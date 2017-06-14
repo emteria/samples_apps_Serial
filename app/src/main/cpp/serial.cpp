@@ -81,8 +81,9 @@ extern "C" JNIEXPORT void JNICALL Java_com_emteria_serial_SerialDriver_logcat(JN
         }
 
         count = 0;
-        rx_buffer[rx_length] = '\0';
+        if (rx_length == 0) { continue; }
 
+        rx_buffer[rx_length] = '\0';
         LOGI("Received %d bytes: %s (%d)", (int) rx_length, rx_buffer, (int) rx_buffer[0]);
     }
 

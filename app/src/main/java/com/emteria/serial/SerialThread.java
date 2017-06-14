@@ -7,11 +7,10 @@ import java.io.File;
 public class SerialThread extends Thread
 {
     private static final String TAG = SerialThread.class.getSimpleName();
-    static{ System.loadLibrary("serial"); }
+    static { System.loadLibrary("serial"); }
 
     private void setPermissions()
     {
-        /*
         try
         {
             String[] command = { "su", "-c", "chmod 666 /dev/ttyS0" };
@@ -21,7 +20,6 @@ public class SerialThread extends Thread
             Log.i(TAG, "SU terminated with result=" + result);
         }
         catch (Exception e) { Log.e(TAG, "Failed to set correct permissions", e); }
-        */
     }
 
     @Override
