@@ -9,6 +9,7 @@
 #include <jni.h>
 #include <fcntl.h>
 #include <termios.h>
+#include <unistd.h>
 
 #include <android/log.h>
 #define LOGI(...) __android_log_print(ANDROID_LOG_INFO, "SerialJNI", __VA_ARGS__)
