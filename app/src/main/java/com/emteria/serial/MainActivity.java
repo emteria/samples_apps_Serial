@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2017 emteria
+ * Copyright (C) 2017-2021 emteria.OS project
  * All rights reserved.
  *
  * This software may be modified and distributed under the terms
@@ -10,7 +10,6 @@ package com.emteria.serial;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.widget.TextView;
 
 public class MainActivity extends Activity
 {

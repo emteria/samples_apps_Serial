@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2017 emteria
+ * Copyright (C) 2017-2021 emteria.OS project
  * All rights reserved.
  *
  * This software may be modified and distributed under the terms

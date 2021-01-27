@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2017 emteria
+ * Copyright (C) 2017-2021 emteria.OS project
  * All rights reserved.
  *
  * This software may be modified and distributed under the terms
@@ -8,10 +8,12 @@
 
 #include <jni.h>
 #include <fcntl.h>
+#include <string.h>
 #include <termios.h>
 #include <unistd.h>
 
 #include <android/log.h>
+
 #define LOGI(...) __android_log_print(ANDROID_LOG_INFO, "SerialJNI", __VA_ARGS__)
 
 // Save the file descriptor between multiple calls
@@ -25,7 +27,7 @@ extern "C" void write_message(char message[])
     if (count < 0) { LOGI("ERR: failed to send data"); }
 }
 
-extern "C" JNIEXPORT void JNICALL Java_com_emteria_serial_SerialDriver_open(JNIEnv* env, jobject /* this */)
+extern "C" JNIEXPORT void JNICALL Java_com_emteria_serial_SerialDriver_open(JNIEnv* env, jclass /* this */)
 {
     if (gSerialDescriptor > 0) { return; }
 
@@ -58,7 +60,7 @@ extern "C" JNIEXPORT void JNICALL Java_com_emteria_serial_SerialDriver_open(JNIE
     LOGI("Opened file descriptor");
 }
 
-extern "C" JNIEXPORT void JNICALL Java_com_emteria_serial_SerialDriver_logcat(JNIEnv* env, jobject /* this */)
+extern "C" JNIEXPORT void JNICALL Java_com_emteria_serial_SerialDriver_logcat(JNIEnv* env, jclass /* this */)
 {
     if (gSerialDescriptor < 0) { return; }
 
@@ -100,7 +102,7 @@ extern "C" JNIEXPORT void JNICALL Java_com_emteria_serial_SerialDriver_logcat(JN
     write_message(goodbye);
 }
 
-extern "C" JNIEXPORT void JNICALL Java_com_emteria_serial_SerialDriver_close(JNIEnv* env, jobject /* this */)
+extern "C" JNIEXPORT void JNICALL Java_com_emteria_serial_SerialDriver_close(JNIEnv* env, jclass /* this */)
 {
     if (gSerialDescriptor < 0) { return; }
 
